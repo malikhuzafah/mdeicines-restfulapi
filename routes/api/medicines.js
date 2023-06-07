@@ -21,7 +21,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.put("/:id", auth, admin, validateMedicine, async (req, res) => {
+router.put("/:id", auth, admin, async (req, res) => {
   let medicine = await Medicine.findById(req.params.id);
   medicine.name = req.body.name;
   medicine.price = req.body.price;

@@ -4,7 +4,7 @@ var Order = require("../../models/order");
 var auth = require("../../middlewares/auth");
 
 router.get("/", auth, async (req, res) => {
-  let orders = await Order.find();
+  let orders = await Order.find({ id: req.user._id });
   return res.send(orders);
 });
 
